@@ -10,13 +10,12 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/font-awesome/css/font-awesome.min.css">
 
 
-    <link href="https://djorna.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="David Jorna Atom">
 
 
 
@@ -29,7 +28,7 @@
 <meta property="og:title" content="David Jorna"/>
 <meta property="og:description" content=""/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://djorna.github.io"/>
+<meta property="og:url" content="http://localhost:8000"/>
 
   <title>David Jorna &ndash;     Archives
 </title>
@@ -40,25 +39,23 @@
 <body>
   <aside>
     <div>
-      <a href="https://djorna.github.io">
-        <img src="https://djorna.github.io/theme/img/profile.png" alt="" title="">
+      <a href="http://localhost:8000">
+        <img src="http://localhost:8000/theme/img/profile.png" alt="" title="">
       </a>
-      <h1><a href="https://djorna.github.io"></a></h1>
+      <h1><a href="http://localhost:8000"></a></h1>
 
 
       <nav>
-        <ul class="list">
-          <li><a href="https://djorna.github.io/pages/about.html#about">About</a></li>
-          <li><a href="https://djorna.github.io/pages/projects.html#projects">Projects</a></li>
+        <ul class="list" id="navlinks">
+            <li id="about"><a href="http://localhost:8000/pages/about.html#about">About</a></li>
+            <li id="projects"><a href="http://localhost:8000/pages/projects.html#projects">Projects</a></li>
 
-          <li><a href="/books" target="_blank">Books</a></li>
-          <li><a href="/contact" target="_blank">Contact</a></li>
         </ul>
       </nav>
 
       <ul class="social">
-        <li><a class="sc-LinkedIn" href="https://www.linkedin.com/in/david-jorna/" target="_blank"><i class="fa fa-LinkedIn"></i></a></li>
-        <li><a class="sc-Github" href="https://github.com/djorna" target="_blank"><i class="fa fa-Github"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/david-jorna/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/djorna" target="_blank"><i class="fa fa-github"></i></a></li>
       </ul>
     </div>
 
@@ -74,16 +71,18 @@
   </header>
   <div>
     <dl>
-      <dt>Fri 03 December 2010</dt>
-      <dd><a href="https://djorna.github.io/my-first-review.html">My First Review</a></dd>
+      <dt>Mon 18 February 2019</dt>
+      <dd><a href="http://localhost:8000/Terrain.html">Terrain Generation with OpenCV and Gazebo</a></dd>
+      <dt>Sun 17 February 2019</dt>
+      <dd><a href="http://localhost:8000/first-blog-post.html">First Blog Post</a></dd>
     </dl>
   </div>
 </article>
 
     <footer>
-<p>&copy;  </p>
-<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
-</p>    </footer>
+
+<p>&copy; David Jorna 2019</p>
+    </footer>
   </main>
 
 
@@ -94,11 +93,29 @@
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " David Jorna ",
-  "url" : "https://djorna.github.io",
+  "url" : "http://localhost:8000",
   "image": "",
   "description": ""
 }
 </script>
 
+
+  <style>
+    a.active {
+      color:#0066ff;
+    }
+  </style>
+  
+  <script>
+  // Script for highlighting menu options
+  var items = document.getElementById("navlinks").getElementsByTagName("li");
+  for (var i = 0; i < items.length; ++i) {
+    var link = items[i].getElementsByTagName("a").item(0);
+    if (link == document.URL) {
+      link.className = 'active';
+    }
+  }
+  </script>
 </body>
+
 </html>
