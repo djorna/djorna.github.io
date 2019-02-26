@@ -1,0 +1,1 @@
+* Move signature in Projects to bottom of page (edit css template)
