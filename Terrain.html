@@ -22,12 +22,12 @@
 
 
 <meta name="author" content="David Jorna" />
-<meta name="description" content="" />
+<meta name="description" content="Motivation Some of the latest robotics research uses deep reinforcement learning (DRL) to train robots to perform complex tasks. This is the same algorithm used by DeepMind&#39;s AlphaGo to beat grandmaster Go players. DRL is great, because it saves robotics engineers from having to hard-code multiple different behaviors, which becomes …" />
 <meta name="keywords" content="">
 
 <meta property="og:site_name" content="David Jorna"/>
-<meta property="og:title" content="Terrain Generation with OpenCV and Gazebo"/>
-<meta property="og:description" content=""/>
+<meta property="og:title" content="Terrain Generation with OpenCV"/>
+<meta property="og:description" content="Motivation Some of the latest robotics research uses deep reinforcement learning (DRL) to train robots to perform complex tasks. This is the same algorithm used by DeepMind&#39;s AlphaGo to beat grandmaster Go players. DRL is great, because it saves robotics engineers from having to hard-code multiple different behaviors, which becomes …"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="https://djorna.github.io/Terrain.html"/>
 <meta property="og:type" content="article"/>
@@ -37,7 +37,7 @@
 <meta property="article:section" content="Open Source Projects"/>
 <meta property="og:image" content="">
 
-  <title>David Jorna &ndash; Terrain Generation with OpenCV and Gazebo</title>
+  <title>David Jorna &ndash; Terrain Generation with OpenCV</title>
 
 
   <!-- pelican_dynamic -->
@@ -73,7 +73,7 @@
 <article class="single">
   <header>
       
-    <h1 id="Terrain">Terrain Generation with OpenCV and Gazebo</h1>
+    <h1 id="Terrain">Terrain Generation with OpenCV</h1>
     <p>
           Posted on Mon 18 February 2019 in <a href="https://djorna.github.io/category/open-source-projects.html">Open Source Projects</a>
 
@@ -83,7 +83,71 @@
 
 
   <div>
-    
+    <h2>Motivation</h2>
+<p>Some of the latest robotics research uses deep reinforcement learning (DRL) to train robots to perform complex tasks. This is the same algorithm used by DeepMind's AlphaGo to beat grandmaster Go players. DRL is great, because it saves robotics engineers from having to hard-code multiple different behaviors, which becomes intractible for robots with many degrees of freedom.</p>
+<p>However, one of the main challenges of applying DRL to robotics is that it requires considerable time to practice. We need a way to reset the work environment when the robot makes a mistake. Also, the initial movements of the untrained robot may be overtorque the motors.</p>
+<p>The solution is simple. Simulation! If we train the robot in a simulation first, we have complete control over the environment, and avoid the risk of damaging our real robot. Most importantly, we can train our robot at faster real-time speed. </p>
+<p><img alt="froopy-land" src="images/procedurally-generated-clouds.jpg"></p>
+<p><em>"Chicken coup?? Those are procedually generated clouds, Beth." - Rick Sanchez</em></p>
+<h2>Setting up the work environment</h2>
+<p>To run the code, you'll first need a C++ and an installation of OpenCV. OpenCV can be a bit of a pain to install for the first time. I recommend these tutorials for getting up and running quickly:<br>
+<a href="https://www.learnopencv.com/install-opencv3-on-windows/">Windows</a><br>
+<a href="https://www.learnopencv.com/install-opencv3-on-macos/">Mac</a><br>
+<a href="http://www.codebind.com/cpp-tutorial/install-opencv-ubuntu-cpp/">Ubuntu</a></p>
+<h2>The Algorithm</h2>
+<p>The algorithm for terrain generation that we're going to use is called the <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">diamond-square algorithm</a>. It's a fairly simple algorithm that consists of alternately performing "square" and "diamond" operations on a 2D grid. These steps are best explained graphically.</p>
+<p><img alt="diamond-square algorithm graphic" src="images/1200px-Diamond_Square.svg.png">
+<em>A graphical illustration of the diamond-square algorithm. Photo credit: Christopher Ewin, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=42510593">Link</a></em></p>
+<h2>The Code</h2>
+<p>It seems logical to divide the code into separate the implementation into two separate functions: one for the "square" step, and one for the "diamond step." Let's start with the "square" step first.</p>
+<h3>Square Step</h3>
+<p>In order to implement the square step, we have to consider the four possible locations from which to take the average. On corners and edges, some of the indices will be outside the bounds of the image, so we will have to check this for all four indices.</p>
+<div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">applySquare</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">img</span><span class="p">,</span> <span class="kt">float</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">-</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="n">step</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="n">cols</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">step</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">result</span> <span class="o">/=</span> <span class="n">i</span><span class="p">;</span>
+  <span class="n">result</span> <span class="o">+=</span> <span class="n">randInt</span><span class="p">()</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3>Diamond Step</h3>
+<p>Next is the diamond step. This step is slightly more straightforward because we know that the corners of the diamond will always be inside the image.</p>
+<div class="highlight"><pre><span></span><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<span class="kt">void</span> <span class="n">applyDiamond</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">img</span><span class="p">,</span> <span class="kt">float</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="n">step</span><span class="p">)</span>
+         <span class="o">+</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="n">step</span><span class="p">)</span>
+         <span class="o">+</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span>
+         <span class="o">+</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">step</span><span class="p">);</span>
+  <span class="n">result</span> <span class="o">/=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="n">result</span> <span class="o">+=</span> <span class="n">randInt</span><span class="p">()</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>You can find the full source code on <a href="https://github.com/djorna/terrain-generation">my Github page</a>.</p>
   </div>
   <div class="tag-cloud">
     <p>
@@ -94,6 +158,21 @@
 
 
 
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'davidjorna';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
 </article>
 
     <footer>
