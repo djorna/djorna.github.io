@@ -5,8 +5,8 @@ import datetime
 
 AUTHOR = 'David Jorna'
 SITENAME = 'David Jorna'
-SITEURL = 'http://djorna.github.io'
-#SITEURL = 'http://localhost:8000' # for development
+#SITEURL = 'http://djorna.github.io'
+SITEURL = 'http://localhost:8000' # for development
 
 PATH = 'content'
 

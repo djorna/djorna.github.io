@@ -10,10 +10,10 @@
 
   <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/font-awesome/css/font-awesome.min.css">
 
 
 
@@ -22,22 +22,22 @@
 
 
 <meta name="author" content="David Jorna" />
-<meta name="description" content="" />
+<meta name="description" content="A simple robot in Gazebo with a procedurally generater heightmap Motivation Some of the latest robotics research uses deep reinforcement learning (DRL) to train robots to perform complex tasks. This is the same algorithm used by DeepMind&#39;s AlphaGo to beat grandmaster Go players. DRL is great, because it saves robotics …" />
 <meta name="keywords" content="">
 
 <meta property="og:site_name" content="David Jorna"/>
-<meta property="og:title" content="Terrain Generation with OpenCV and Gazebo"/>
-<meta property="og:description" content=""/>
+<meta property="og:title" content="Terrain Generation with OpenCV"/>
+<meta property="og:description" content="A simple robot in Gazebo with a procedurally generater heightmap Motivation Some of the latest robotics research uses deep reinforcement learning (DRL) to train robots to perform complex tasks. This is the same algorithm used by DeepMind&#39;s AlphaGo to beat grandmaster Go players. DRL is great, because it saves robotics …"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://djorna.github.io/Terrain.html"/>
+<meta property="og:url" content="http://localhost:8000/Terrain.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2019-02-18 08:39:00-05:00"/>
 <meta property="article:modified_time" content=""/>
-<meta property="article:author" content="https://djorna.github.io/author/david-jorna.html">
+<meta property="article:author" content="http://localhost:8000/author/david-jorna.html">
 <meta property="article:section" content="Open Source Projects"/>
 <meta property="og:image" content="">
 
-  <title>David Jorna &ndash; Terrain Generation with OpenCV and Gazebo</title>
+  <title>David Jorna &ndash; Terrain Generation with OpenCV</title>
 
 
   <!-- pelican_dynamic -->
@@ -45,16 +45,16 @@
 <body>
   <aside>
     <div>
-      <a href="https://djorna.github.io">
-        <img src="https://djorna.github.io/theme/img/profile.png" alt="" title="">
+      <a href="http://localhost:8000">
+        <img src="http://localhost:8000/theme/img/profile.png" alt="" title="">
       </a>
-      <h1><a href="https://djorna.github.io"></a></h1>
+      <h1><a href="http://localhost:8000"></a></h1>
 
 
       <nav>
         <ul class="list" id="navlinks">
-            <li id="about"><a href="https://djorna.github.io/pages/about.html#about">About</a></li>
-            <li id="projects"><a href="https://djorna.github.io/pages/projects.html#projects">Projects</a></li>
+            <li id="about"><a href="http://localhost:8000/pages/about.html#about">About</a></li>
+            <li id="projects"><a href="http://localhost:8000/pages/projects.html#projects">Projects</a></li>
 
         </ul>
       </nav>
@@ -63,6 +63,22 @@
         <li><a class="sc-linkedin" href="https://www.linkedin.com/in/david-jorna/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
         <li><a class="sc-github" href="https://github.com/djorna" target="_blank"><i class="fa fa-github"></i></a></li>
       </ul>
+
+      <!-- a href="mailto:davidjorna@gmail.com?subject=Subscription to davidjorna.com
+        &body=Hi, I would like to receive email notifications when you publish a new post.">Subscribe</a -->
+
+      <!-- Begin Mailchimp Signup Form -->
+      <!-- link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" -->
+
+      <form action="https://gmail.us20.list-manage.com/subscribe/post?u=2266395baae64c7ef988e2db5&amp;id=457c7cedd8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2266395baae64c7ef988e2db5_457c7cedd8" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="subscribe-button" class="button"></div>
+        </div>
+      </form>
+
+<!--End mc_embed_signup-->
+
     </div>
 
 
@@ -70,12 +86,20 @@
   <main>
 
 
+   
+    <!-- <input type="button" onClick="subscribePopup()" value="Subscribe" />
+    <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false">
+    </script>
+    <script type="text/javascript">
+      window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us20.list-manage.com","uuid":"2266395baae64c7ef988e2db5","lid":"457c7cedd8","uniqueMethods":true}) })
+    </script> -->
+
 <article class="single">
   <header>
       
-    <h1 id="Terrain">Terrain Generation with OpenCV and Gazebo</h1>
+    <h1 id="Terrain">Terrain Generation with OpenCV</h1>
     <p>
-          Posted on Mon 18 February 2019 in <a href="https://djorna.github.io/category/open-source-projects.html">Open Source Projects</a>
+          Posted on Mon 18 February 2019 in <a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a>
 
 
     </p>
@@ -83,7 +107,87 @@
 
 
   <div>
-    
+    <p><img alt="gazebo-terrain" src="images/simple_rover_terrain_gazebo.jpg"></p>
+<p><em>A simple robot in Gazebo with a procedurally generater heightmap</em></p>
+<p><img alt="demo image" src="images/terrain_generation.png"></p>
+<h2>Motivation</h2>
+<p>Some of the latest robotics research uses deep reinforcement learning (DRL) to train robots to perform complex tasks. This is the same algorithm used by DeepMind's AlphaGo to beat grandmaster Go players. DRL is great, because it saves robotics engineers from having to hard-code multiple different behaviors, which becomes intractible for robots with many degrees of freedom.</p>
+<p>However, one of the main challenges of applying DRL to robotics is that it requires considerable time to practice. We need a way to reset the work environment when the robot makes a mistake. Also, the initial movements of the untrained robot may be overtorque the motors.</p>
+<p>The solution is simple. Simulation! If we train the robot in a simulation first, we have complete control over the environment, and avoid the risk of damaging our real robot. Most importantly, we can train our robot at faster real-time speed. </p>
+<p>//<img alt="froopy land" src="images/procedurally-generated-clouds.jpg"></p>
+<p><em>"Chicken coup?? Those are procedually generated clouds, Beth." - Rick Sanchez</em></p>
+<h2>Setting up the work environment</h2>
+<p>To run the code, you'll first need a C++ and an installation of OpenCV. OpenCV can be a bit of a pain to install for the first time. I recommend these tutorials for getting up and running quickly:<br>
+<a href="https://www.learnopencv.com/install-opencv3-on-windows/">Windows</a><br>
+<a href="https://www.learnopencv.com/install-opencv3-on-macos/">Mac</a><br>
+<a href="http://www.codebind.com/cpp-tutorial/install-opencv-ubuntu-cpp/">Ubuntu</a></p>
+<h2>The Algorithm</h2>
+<p>The algorithm for terrain generation that we're going to use is called the <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">diamond-square algorithm</a>. It's a fairly simple algorithm that consists of alternately performing "square" and "diamond" operations on a 2D grid. These steps are best explained graphically.</p>
+<p><img alt="diamond-square algorithm graphic" src="images/1200px-Diamond_Square.svg.png">
+<em>A graphical illustration of the diamond-square algorithm. Photo credit: Christopher Ewin, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=42510593">Link</a></em></p>
+<h2>The Code</h2>
+<p>It seems logical to divide the code into separate the implementation into two separate functions: one for the "square" step, and one for the "diamond step." Let's start with the "square" step first.</p>
+<h3>Square Step</h3>
+<p>In order to implement the square step, we have to consider the four possible locations from which to take the average. On corners and edges, some of the indices will be outside the bounds of the image, so we will have to check this for all four indices.</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">TerrainGenerator</span><span class="o">::</span><span class="n">applySquare</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">img</span><span class="p">,</span> <span class="kt">float</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">-</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="n">step</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">col</span> <span class="o">+</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="n">cols</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">step</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="n">rows</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">result</span> <span class="o">+=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span><span class="p">);</span>
+    <span class="o">++</span><span class="n">i</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="n">result</span> <span class="o">/=</span> <span class="n">i</span><span class="p">;</span>
+  <span class="n">result</span> <span class="o">+=</span> <span class="n">randInt</span><span class="p">()</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Now we repeat this operation for the entire image.</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">TerrainGenerator</span><span class="o">::</span><span class="n">diamond</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">img</span><span class="p">,</span> <span class="kt">float</span> <span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">int</span> <span class="n">stride</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="n">rows</span><span class="p">;</span> <span class="n">i</span> <span class="o">+=</span> <span class="n">stride</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">img</span><span class="p">.</span><span class="n">cols</span><span class="p">;</span> <span class="n">j</span> <span class="o">+=</span> <span class="n">stride</span><span class="p">)</span> <span class="p">{</span>
+      <span class="n">applyDiamond</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3>Diamond Step</h3>
+<p>Next is the diamond step. This step is slightly more straightforward because we know that the corners of the diamond will always be inside the image.</p>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">TerrainGenerator</span><span class="o">::</span><span class="n">applyDiamond</span><span class="p">(</span><span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">,</span> <span class="n">cv</span><span class="o">::</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">img</span><span class="p">,</span> <span class="kt">float</span> <span class="n">p</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kt">int</span> <span class="n">step</span> <span class="o">=</span> <span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="n">step</span><span class="p">)</span>
+         <span class="o">+</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">-</span> <span class="n">step</span><span class="p">)</span>
+         <span class="o">+</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">-</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">step</span><span class="p">)</span>
+         <span class="o">+</span> <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span> <span class="o">+</span> <span class="n">step</span><span class="p">,</span> <span class="n">col</span> <span class="o">+</span> <span class="n">step</span><span class="p">);</span>
+  <span class="n">result</span> <span class="o">/=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="n">result</span> <span class="o">+=</span> <span class="n">randInt</span><span class="p">()</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+  <span class="n">img</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>You can find the full source code on <a href="https://github.com/djorna/terrain-generation">my Github page</a>.</p>
+<h1>Next steps</h1>
   </div>
   <div class="tag-cloud">
     <p>
@@ -110,7 +214,7 @@
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " David Jorna ",
-  "url" : "https://djorna.github.io",
+  "url" : "http://localhost:8000",
   "image": "",
   "description": ""
 }
