@@ -45,5 +45,7 @@ PLUGINS = ['pelican_dynamic']
 # STATIC_PATHS = ['./content/pages', './content/images']
 STATIC_PATHS = ['images']
 
+USE_GOOGLE_FONTS = True
+
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

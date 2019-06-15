@@ -1,6 +1,6 @@
 Title: Procedural Terrain Generation
 Date: 2019-05-14 9:32 
-Modified: 2019-06-09 21:00
+Modified: 2019-06-14 21:00
 Category: Open Source Projects
 Tags: programming, C++, open-source, terrain-generation
 Slug: Terrain1
@@ -8,9 +8,12 @@ Authors: David Jorna
 Summary: Generate a 2D heightmap for use in 3D games and simulations.
 Featured_Image: images/terrain_generation.png
 
+
+\\[\renewcommand{\vec}[1]{\mathbf{#1}}\\]
+
 ## Motivation
 
-Procedural terrain generation encompasses a broad range of techniques, with the goal of efficiently creating world with realistic appearance. One of the most famous applications is in Minecraft, which uses Perlin noise to create infinite voxel maps. Another famous example is No Man's Sky, which uses procedural techniques to generate entire worlds.
+Procedural terrain generation encompasses a broad range of techniques, with the goal of efficiently creating a realistic simulated environment. Some of the most famous applications of procedural terrain generation are in [Minecraft](https://www.minecraft.net/en-us/), which procedurally generated biomes to simulate different climages, and [No Man's Sky](https://www.nomanssky.com/), which uses procedural techniques to generate entire worlds.
 
 While video games are the most well-known application of procedural terrain generation, they are not the only application. Recently, OpenAI has demonstrated the utility of training robots in a simulation before deploying them in the real world, using deep reinforcement learning. So far, the focus has mostly been on teaching robotic manipulators complex tasks, but the same algorithms could also be used to train self-driving cars, and other forms of mobile robots. The challenge with this approach is that we have to build hundreds of kilometers of photorealistic roads for the cars to drive on. Perhaps in the future, some kind of procedural world generation will be used to train and test self-driving cars and other robots.
 
@@ -20,7 +23,7 @@ The algorithm for terrain generation that we're going to use is called the [diam
 ![diamond-square algorithm graphic](images/1200px-Diamond_Square.svg.png)
 *A graphical illustration of the diamond-square algorithm. Photo credit: Christopher Ewin, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=42510593">Link</a>*
 
-The algorithm looks something like this:
+The algorithm looks something like this:  
 
 1. Set persistence between 0 and 1
 2. Set corners to random values
@@ -48,45 +51,85 @@ For this application, we want to adjust the height of each cell based on their \
 
 The heights of each cell will be calculated as a linear combination of its nearest neighbours \\(h = c_1 h_1 + c_2 h_2 ... + c_n h_n\\), where \\(h_i\\) is the \\(n^{th}\\) nearest neighbour and the coefficients \\(c_i\\) are parameters which can be adjusted to achieve different effects.
 
-![voronoi_demo](images/voronoi.png)
+![voronoi_demo](images/voronoi.png)  
+*Generated Voronoi diagram with the parameters \\(n_{peaks} = 20, c_1 = -1, c_2 = 1\\).*
+
+
+## Weighted Combination
+
+The Voronoi diagram can be used to simulate mountains, but they are too smooth to emulate real terrain. To remedy this, we will set the new terrain \\(C\\) to be a linear combination of the diamond-square heightmap, \\(D\\), and the Voronoi heightmap, \\(V\\). The parameter \\(\alpha \\) is some real number between 0 and 1.
+
+\\[\vec{C} := \\alpha \vec{D} + (1 - \\alpha) \vec{V}\\]
+
+Here's what the heightmap looks like with \\(\alpha\\ = 0.66\\), meaning the ratio of the diamond-square heightmap to the Voronoi heightmap is 2:1:
+
+![combined](images/combined.png)
+*Combined heightmap with \\(\alpha = 0.66\\).*
 
 ## Perturbation Filter
 
-This one was hard to figure out. The algorithm wasn't given in the paper, and instead a link to a textbook *(Texturing and Modeling: a Procedural Approach Third Edition)* was given. So I found the found the excerpt from the book on Google Books, and it used a shader language (Renderman Shader Language), which I wasn't familiar with. But after banging my head against the desk a bit, I was able to achieve a similar effect. Whether it's the original implementation though, I can't be sure.
+This one was a pain to figure out. The algorithm wasn't given in the paper, and instead a link to a textbook *[(Texturing and Modeling: a Procedural Approach Third Edition)](https://www.amazon.com/Texturing-Modeling-Third-Procedural-Approach/dp/1558608486)* was given. So I found the found the excerpt from the book on Google Books, and it used a shader language (Renderman Shader Language), which I wasn't familiar with. But after banging my head against the desk a bit, I was able to get something that has some resemblance to the figure in the paper.
 
 The "perturbation filter" described in this paper uses a well-known algorithm in procedural generation: [Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise). Perlin noise works by generating an n-dimensional displacement field, so each cell is displaced by a random amount. For this application, we will use 3D Perlin noise, and calculate the displacement of each pixel based on its initial position \\( (i, j) \\), and pixel value \\(h_{i,j}\\).
 
 ![perturb_demo](images/perturb.png)
+*The combined heightmap is warped with a perturbation filter with a magnitude of 0.02. This mean that the most any pixel can be displaced in \\(0.02 N\\), where \\(N\\) is the side length of the heightmap.*
 
 ## Thermal Erosion
 
 Something to keep in mind with erosion algorithms is that the goal is not necessarily to simulate natural processes. We just want the end result to look right, and the algorithm to be efficient. In computer graphics, there is no such thing as cheating.
 
-![thermal_erosion_demo](images/thermal_erosion_eroded.png)
+The pseudocode for thermal erosion is as follows:
+
+```Python
+c = 0.5 # Erosion magnitude
+d_total = 0 # Total height difference
+d_max = 0 # Max height difference
+T = 4 / N # Talus angle threshold
+for n iterations:
+    for h in heightmap:
+        d = []
+        # Neighbours are the 8 adjacent cells (Moore neighbourhood)
+        for i in h.neighbours:
+            d[i] = h - h[i]
+            if d[i] > T:
+                d_total += d
+                d_max = max(d, d_total)
+
+        for i in h.neighbours:
+            # Only erode if difference is above threshold
+            if d[i] > T:
+                h[i] += c * (d[i] - T)
+```
+
+![thermal_erosion_demo](images/thermal_erosion_eroded.png)  
+*Thermal erosion run for 50 iterations.*
 
 ## Hydraulic Erosion
 
 Hydraulic erosion is more demanding on both memory and computation than thermal erosion, because it involves keeping track of a water layer as well as the sediment layer. Hydraulic erosion consists of 4 steps:
 
-1. Intitialize watermap, sedimentmap, and heightmap.
-1. Rainfall: Add a constant amount of rain to each cell in the watermap.
-\\[\renewcommand{\vec}[1]{\mathbf{#1}}\\]
+
+### 1. Rainfall
+
+Add a constant value to each cell of the watermap to simulate rainfall.
+
 \\[\vec{W} := \vec{W} + K_{r} \\]
 
-Where \\(W\\) is the watermap and \\(K_r\\) is the rain constant.
-2. Erosion: Displace sediment from the heightmap proportional to the watermap.
+Where \\(\vec{W}\\) is the watermap and \\(K_r\\) is the rain constant.
+### 3. Erosion
 
 \\[\vec{H} := \vec{H} - K_{s} \vec{W} \\]
 \\[\vec{S} := \vec{S} + K_{s} \vec{W} \\]
 
 Where \\(H\\) is the heightmap, \\(S\\) is the sediment map, and \\(K_s\\) is the sediment coefficient.
-3. Transportation: Distribute water to level to equalize the sum a = heightmap + watermap
+### 4. Transportation
 
 Now we have to simulate the motion of the water using a simple heuristic:
 
 > If you put water into a cup, it becomes the cup. - Bruce Lee
 
-In mathematical terms, this mean that at each cell, the total value of \\(a = h + w\\) should be levelled out. This gives us the formulas:
+In mathematical terms, this mean that at each cell, the total value of \\(a = h + w\\) should be levelled out with respect to its neighbours. This gives us the formulas:
 
 \\[\Delta w_i = min(w, \Delta a) \times \frac{d_i}{d_{total}} \\]
 
@@ -98,13 +141,13 @@ And since the flow of water will have an effect on the loose sediment, the sedim
 
 Where \\( \Delta s_i\\) is the amount for sediment transferred from \\(s\\) to each neighbouring cell \\(s_i\\).
 
-4. Evaporation: Evaporate water from the watermap and 
+### 5. Evaporation
 
 First, a percentage of the water is evaporated.
 \\[\vec{W} := (1 - K_e) \vec{W}  \\]
 Where \\(K_e\\) is the evaporation coefficient.
 
-Finally, some amount of sediment, \\(\delta s_max\\) will remain within the water, based on the sediment capacity of the water \\(K_s\\), and some will fall, and be recombined with the heightmap. \\(\delta s_max\\) is calculated as:  
+Finally, some amount of sediment, \\(\delta s_{max}\\) will remain within the water, based on the sediment capacity of the water \\(K_s\\), and some will fall, and be recombined with the heightmap. \\(\delta s_{max}\\) is calculated as:  
 \\[\delta s_{max} = K_c \times w\\]
 
 And the remaining sediment is recombined with the heightmap:
@@ -115,6 +158,7 @@ And the remaining sediment is recombined with the heightmap:
 
 
 The coefficients used in the paper are as follows:  
+
 \\(K_r = 0.01\\)  
 \\(K_s = 0.01\\)  
 \\(K_e = 0.5\\)  
@@ -147,4 +191,4 @@ In order to visualize the generated terrain in 3D, and provide a simpler user in
 You can find the full source code for this project on [my Github page](https://github.com/djorna/terrain-generation).
 
 ## Further Reading
-All of the techniques I am using for procedural terrain generation are from a [2004 paper](http://web.mit.edu/cesium/Public/terrain.pdf), which details the use of the algorithm to generate maps for a real-time strategy game. I highly recommend reading the paper, as it goes into more depth about the design and optimization of the algorithms.
+All of the techniques I am using for procedural terrain generation are from a [2004 paper](http://web.mit.edu/cesium/Public/terrain.pdf), which details the use of the algorithm to generate maps for a real-time strategy game. I highly recommend reading the paper, as it goes into more depth about the design and optimization of each of the algorithms.

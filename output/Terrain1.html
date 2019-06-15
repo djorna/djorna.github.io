@@ -8,7 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="" />
 
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet" --->
+  <!-- link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet" --> 
+  <!-- link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet" --> 
+  <!--link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" --> 
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
 
     <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/stylesheet/style.min.css">
 
@@ -32,7 +36,7 @@
 <meta property="og:url" content="http://localhost:8000/Terrain1.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2019-05-14 09:32:00-05:00"/>
-<meta property="article:modified_time" content="2019-06-09 21:00:00-05:00"/>
+<meta property="article:modified_time" content="2019-06-14 21:00:00-05:00"/>
 <meta property="article:author" content="http://localhost:8000/author/david-jorna.html">
 <meta property="article:section" content="Open Source Projects"/>
 <meta property="article:tag" content="programming"/>
@@ -130,14 +134,15 @@
 
 
   <div class="article-content">
-    <h2>Motivation</h2>
-<p>Procedural terrain generation encompasses a broad range of techniques, with the goal of efficiently creating world with realistic appearance. One of the most famous applications is in Minecraft, which uses Perlin noise to create infinite voxel maps. Another famous example is No Man's Sky, which uses procedural techniques to generate entire worlds.</p>
+    <p>\[\renewcommand{\vec}[1]{\mathbf{#1}}\]</p>
+<h2>Motivation</h2>
+<p>Procedural terrain generation encompasses a broad range of techniques, with the goal of efficiently creating a realistic simulated environment. Some of the most famous applications of procedural terrain generation are in <a href="https://www.minecraft.net/en-us/">Minecraft</a>, which procedurally generated biomes to simulate different climages, and <a href="https://www.nomanssky.com/">No Man's Sky</a>, which uses procedural techniques to generate entire worlds.</p>
 <p>While video games are the most well-known application of procedural terrain generation, they are not the only application. Recently, OpenAI has demonstrated the utility of training robots in a simulation before deploying them in the real world, using deep reinforcement learning. So far, the focus has mostly been on teaching robotic manipulators complex tasks, but the same algorithms could also be used to train self-driving cars, and other forms of mobile robots. The challenge with this approach is that we have to build hundreds of kilometers of photorealistic roads for the cars to drive on. Perhaps in the future, some kind of procedural world generation will be used to train and test self-driving cars and other robots.</p>
 <h2>The Diamond-Square Algorithm</h2>
 <p>The algorithm for terrain generation that we're going to use is called the <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">diamond-square algorithm</a>. It's a fairly simple algorithm that consists of alternately performing "square" and "diamond" operations on a 2D grid. These steps are best explained graphically.</p>
 <p><img alt="diamond-square algorithm graphic" src="images/1200px-Diamond_Square.svg.png">
 <em>A graphical illustration of the diamond-square algorithm. Photo credit: Christopher Ewin, <a href="https://creativecommons.org/licenses/by-sa/4.0" title="Creative Commons Attribution-Share Alike 4.0">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/w/index.php?curid=42510593">Link</a></em></p>
-<p>The algorithm looks something like this:</p>
+<p>The algorithm looks something like this:  </p>
 <ol>
 <li>Set persistence between 0 and 1</li>
 <li>Set corners to random values</li>
@@ -156,53 +161,79 @@
 <em>An illustration of a Voronoi diagram with cell regions coloured based on their nearest neighbour.</em></p>
 <p>Voronoi diagrams have many interesting applications, including urban planning, robotics, and of course procedural generation. There are some interesting algorithms for generating Voronoi diagrams, but we won't be using them, because we acually don't need to calculate the boundaries of the diagram.</p>
 <p>For this application, we want to adjust the height of each cell based on their \(n^{th}\) nearest neighbours. In this case it makes sense to use the kd-tree data structure to allow for fast searching of nearest neighbours.</p>
-<p>The heights of each cell will be calculated as a linear combination of its nearest neighbours \(h = c_1 h_1 + c_2 h_2 ... + c_n h_n\), where \(h_i\) is the \(n^th\) nearest neighbour and the coefficients \(c_i\) are parameters which can be adjusted to achieve different effects.</p>
-<p><img alt="voronoi_demo" src="images/voronoi.png"></p>
+<p>The heights of each cell will be calculated as a linear combination of its nearest neighbours \(h = c_1 h_1 + c_2 h_2 ... + c_n h_n\), where \(h_i\) is the \(n^{th}\) nearest neighbour and the coefficients \(c_i\) are parameters which can be adjusted to achieve different effects.</p>
+<p><img alt="voronoi_demo" src="images/voronoi.png"><br>
+<em>Generated Voronoi diagram with the parameters \(n_{peaks} = 20, c_1 = -1, c_2 = 1\).</em></p>
+<h2>Weighted Combination</h2>
+<p>The Voronoi diagram can be used to simulate mountains, but they are too smooth to emulate real terrain. To remedy this, we will set the new terrain \(C\) to be a linear combination of the diamond-square heightmap, \(D\), and the Voronoi heightmap, \(V\). The parameter \(\alpha \) is some real number between 0 and 1.</p>
+<p>\[\vec{C} := \alpha \vec{D} + (1 - \alpha) \vec{V}\]</p>
+<p>Here's what the heightmap looks like with \(\alpha\ = 0.66\), meaning the ratio of the diamond-square heightmap to the Voronoi heightmap is 2:1:</p>
+<p><img alt="combined" src="images/combined.png">
+<em>Combined heightmap with \(\alpha = 0.66\).</em></p>
 <h2>Perturbation Filter</h2>
-<p>This one was hard to figure out. The algorithm wasn't given in the paper, and instead a link to a textbook (Texturing and Modeling: a Procedural Approach Third Edition) was given. So I found the found the excerpt from the book, and it used a shader language (Renderman Shader Language), which I wasn't familiar with. But after a bit of detective work, and a lot of debugging, I was able to replicate it.</p>
-<p>The "perturbation filter" described in this paper uses a well-known algorithm among Minecraft fans: Perlin noise. Perlin noise works by generating an n-dimensional displacement field, so each cell is displaced by a random amount. For this application, we will use 3D Perlin noise.</p>
-<p><img alt="perturb_demo" src="images/perturb.png"></p>
+<p>This one was a pain to figure out. The algorithm wasn't given in the paper, and instead a link to a textbook <em><a href="https://www.amazon.com/Texturing-Modeling-Third-Procedural-Approach/dp/1558608486">(Texturing and Modeling: a Procedural Approach Third Edition)</a></em> was given. So I found the found the excerpt from the book on Google Books, and it used a shader language (Renderman Shader Language), which I wasn't familiar with. But after banging my head against the desk a bit, I was able to get something that has some resemblance to the figure in the paper.</p>
+<p>The "perturbation filter" described in this paper uses a well-known algorithm in procedural generation: <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin noise</a>. Perlin noise works by generating an n-dimensional displacement field, so each cell is displaced by a random amount. For this application, we will use 3D Perlin noise, and calculate the displacement of each pixel based on its initial position \( (i, j) \), and pixel value \(h_{i,j}\).</p>
+<p><img alt="perturb_demo" src="images/perturb.png">
+<em>The combined heightmap is warped with a perturbation filter with a magnitude of 0.02. This mean that the most any pixel can be displaced in \(0.02 N\), where \(N\) is the side length of the heightmap.</em></p>
 <h2>Thermal Erosion</h2>
 <p>Something to keep in mind with erosion algorithms is that the goal is not necessarily to simulate natural processes. We just want the end result to look right, and the algorithm to be efficient. In computer graphics, there is no such thing as cheating.</p>
-<p><img alt="thermal_erosion_demo" src="images/thermal_erosion_eroded.png"></p>
+<p>The pseudocode for thermal erosion is as follows:</p>
+<div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># Erosion magnitude</span>
+<span class="n">d_total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Total height difference</span>
+<span class="n">d_max</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Max height difference</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">N</span> <span class="c1"># Talus angle threshold</span>
+<span class="k">for</span> <span class="n">n</span> <span class="n">iterations</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">heightmap</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Neighbours are the 8 adjacent cells (Moore neighbourhood)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">h</span><span class="o">.</span><span class="n">neighbours</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">-</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">:</span>
+                <span class="n">d_total</span> <span class="o">+=</span> <span class="n">d</span>
+                <span class="n">d_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">d_total</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">h</span><span class="o">.</span><span class="n">neighbours</span><span class="p">:</span>
+            <span class="c1"># Only erode if difference is above threshold</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">:</span>
+                <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="thermal_erosion_demo" src="images/thermal_erosion_eroded.png"><br>
+<em>Thermal erosion run for 50 iterations.</em></p>
 <h2>Hydraulic Erosion</h2>
 <p>Hydraulic erosion is more demanding on both memory and computation than thermal erosion, because it involves keeping track of a water layer as well as the sediment layer. Hydraulic erosion consists of 4 steps:</p>
-<ol>
-<li>Intitialize watermap, sedimentmap, and heightmap.</li>
-<li>Rainfall: Add a constant amount of rain to each cell in the watermap.
-\[\renewcommand{\vec}[1]{\mathbf{#1}}\]
-\[\vec{W} := \vec{W} + K_{r} \]</li>
-</ol>
-<p>Where \(W\) is the watermap and \(K_r\) is the rain constant.
-2. Erosion: Displace sediment from the heightmap proportional to the watermap.</p>
+<h3>1. Rainfall</h3>
+<p>Add a constant value to each cell of the watermap to simulate rainfall.</p>
+<p>\[\vec{W} := \vec{W} + K_{r} \]</p>
+<p>Where \(\vec{W}\) is the watermap and \(K_r\) is the rain constant.</p>
+<h3>3. Erosion</h3>
 <p>\[\vec{H} := \vec{H} - K_{s} \vec{W} \]
 \[\vec{S} := \vec{S} + K_{s} \vec{W} \]</p>
-<p>Where \(H\) is the heightmap, \(S\) is the sediment map, and \(K_s\) is the sediment coefficient.
-3. Transportation: Distribute water to level to equalize the sum a = heightmap + watermap</p>
+<p>Where \(H\) is the heightmap, \(S\) is the sediment map, and \(K_s\) is the sediment coefficient.</p>
+<h3>4. Transportation</h3>
 <p>Now we have to simulate the motion of the water using a simple heuristic:</p>
 <blockquote>
 <p>If you put water into a cup, it becomes the cup. - Bruce Lee</p>
 </blockquote>
-<p>In mathematical terms, this mean that at each cell, the total value of \(a = h + w\) should be levelled out. This gives us the formulas:</p>
+<p>In mathematical terms, this mean that at each cell, the total value of \(a = h + w\) should be levelled out with respect to its neighbours. This gives us the formulas:</p>
 <p>\[\Delta w_i = min(w, \Delta a) \times \frac{d_i}{d_{total}} \]</p>
 <p>Where \( \Delta w_i\) is the amount for water transferred from \(w\) to each neighbouring cell \(w_i\).</p>
 <p>And since the flow of water will have an effect on the loose sediment, the sediment flow will be proportional to the water flow:</p>
 <p>\[\Delta s_i = s \times \frac{\Delta w_i}{w} \]</p>
 <p>Where \( \Delta s_i\) is the amount for sediment transferred from \(s\) to each neighbouring cell \(s_i\).</p>
-<ol>
-<li>Evaporation: Evaporate water from the watermap and </li>
-</ol>
+<h3>5. Evaporation</h3>
 <p>First, a percentage of the water is evaporated.
 \[\vec{W} := (1 - K_e) \vec{W}  \]
 Where \(K_e\) is the evaporation coefficient.</p>
-<p>Finally, some amount of sediment, \(\delta s_max\) will remain within the water, based on the sediment capacity of the water \(K_s\), and some will fall, and be recombined with the heightmap. \(\delta s_max\) is calculated as:<br>
-\[\delta s_max = K_c \times w\]</p>
+<p>Finally, some amount of sediment, \(\delta s_{max}\) will remain within the water, based on the sediment capacity of the water \(K_s\), and some will fall, and be recombined with the heightmap. \(\delta s_{max}\) is calculated as:<br>
+\[\delta s_{max} = K_c \times w\]</p>
 <p>And the remaining sediment is recombined with the heightmap:</p>
 <p>\[\Delta s := max(0, s - \delta m_{max})\]
 \[s := s - \Delta s\]
 \[h := h + \Delta s\]</p>
-<p>The coefficients used in the paper are as follows:
-\(K_r = 0.01\)<br>
+<p>The coefficients used in the paper are as follows:  </p>
+<p>\(K_r = 0.01\)<br>
 \(K_s = 0.01\)<br>
 \(K_e = 0.5\)<br>
 \(K_c = 0.01\)</p>
@@ -223,7 +254,7 @@ Where \(K_e\) is the evaporation coefficient.</p>
 <em>A demonstration of Jacob Olsen's speed-optimized version of thermal erosion.</em></p>
 <p>You can find the full source code for this project on <a href="https://github.com/djorna/terrain-generation">my Github page</a>.</p>
 <h2>Further Reading</h2>
-<p>All of the techniques I am using for procedural terrain generation are from a <a href="http://web.mit.edu/cesium/Public/terrain.pdf">2004 paper</a>, which details the use of the algorithm to generate maps for a real-time strategy game. I highly recommend reading the paper, as it goes into more depth about the design and optimization of the algorithms.</p>
+<p>All of the techniques I am using for procedural terrain generation are from a <a href="http://web.mit.edu/cesium/Public/terrain.pdf">2004 paper</a>, which details the use of the algorithm to generate maps for a real-time strategy game. I highly recommend reading the paper, as it goes into more depth about the design and optimization of each of the algorithms.</p>
   </div>
   <div class="tag-cloud">
     <p>
