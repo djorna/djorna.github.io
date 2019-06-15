@@ -4,8 +4,10 @@ body, html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
-  line-height: 1.1
+  /*font-weight: 300;*/
+  /*line-height: 1.1;*/
+  line-height: 1.1em;
+  font-weight: bold
 }
 
 h1 {
@@ -13,7 +15,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2em
+  font-size: 2em;
 }
 
 h3 {
@@ -40,6 +42,11 @@ body {
   font-family: Source Sans Pro, Roboto, Open Sans, Liberation Sans, DejaVu Sans, Verdana, Helvetica, Arial, sans-serif;
   font-size: 1.02em;
   line-height: 1.2em
+}
+
+.article-summary {
+  padding-left: 10px;
+  float: left;
 }
 
 #subscribe-button {
@@ -148,11 +155,13 @@ main .social-share p {
 }
 
 main article {
-  margin: 0 8% 2%
+  margin: 0 8% 2%;
+  max-width: 800px;
+  margin: auto;
 }
 
 main article header h1, main article header h2 {
-  margin-bottom: 0
+  margin-bottom: 0;
 }
 
 main article header p {
@@ -254,10 +263,21 @@ main footer p {
   font-size: 11px
 }
 
+.article-content {
+  max-width: 800px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.article-content img {
+  width: 100%;
+}
+
 .tag-cloud a {
-  background-color: #d9411e;
+  background-color: #0747a6;
   padding: .2em .6em;
-  font-size: .74em;
+  /* font-size: .74em; */
   line-height: 1;
   color: #fff;
   text-align: center;
@@ -268,6 +288,28 @@ main footer p {
 
 .tag-cloud a:hover {
   background-color: #ff5a09
+}
+
+.category-cloud a {
+  background-color: #00ab6b;
+  padding: .2em .6em;
+  /* font-size: .74em; */
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em
+}
+
+.category-cloud a:hover {
+  background-color: #ff5a09
+}
+
+.article-image-thumbnail {
+  float: left;
+  max-width: 200px;
+  height: 200px
 }
 
 a.btn {
