@@ -24,6 +24,7 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 #LINKS = (('Books', '#books'),
 #         ('Contact', '#contact'),)
+LINKS = (('blog', SITEURL),)
 
 THEME = './themes/FlexMod'
 

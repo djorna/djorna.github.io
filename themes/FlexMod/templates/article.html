@@ -27,7 +27,14 @@
         &#8226; {{ article.stats['read_mins'] }} min read
       {% endif %}
     </p>
+    
   </header>
+    <!-- Fancy math equations -->
+    <!-- script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script> -->
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
   {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_top %}
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -39,7 +46,7 @@
     </script>
   {% endif %}
 
-  <div>
+  <div class="article-content">
     {{ article.content }}
   </div>
   <div class="tag-cloud">

@@ -118,11 +118,11 @@
               {% set PAGES_SORT_ATTRIBUTE = 'title' %}
           {%- endif %}
           {% for page in pages|sort(attribute=PAGES_SORT_ATTRIBUTE) %}
-            <li id="{{ page.slug }}"><a href="{{ SITEURL }}/{{ page.url }}{% if not DISABLE_URL_HASH %}#{{ page.slug }}{% endif %}">{{ page.title }}</a></li>
+            <li id="{{ page.slug }}"><a href="{{ SITEURL }}/{{ page.url }}{% if not DISABLE_URL_HASH %}#{{ page.slug }}{% endif %}">{{ page.title.title() }}</a></li>
           {% endfor %}
 
           {% for name, link in LINKS %}
-          <li id="{{_link__}}"><a href="{{ link }}" target="_blank">{{ name }}</a></li>
+          <li id="{{_link__}}"><a href="{{ link }}">{{ name }}</a></li>
           {% endfor %}
         </ul>
       </nav>
@@ -144,10 +144,26 @@
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
           <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2266395baae64c7ef988e2db5_457c7cedd8" tabindex="-1" value=""></div>
           <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="subscribe-button" class="button"></div>
-        </div>
       </form>
 
 <!--End mc_embed_signup-->
+
+    <!-- List categories  -->
+    <div class="category-cloud">
+      <p>
+        Topics:
+        {% for category, articles in categories|sort %}
+        <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+        {% endfor %}
+      </p>
+    </div>
+  <!--
+   <ul class="list">
+      {% for category, articles in categories|sort %}
+      <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a> ({{ articles|count }})</li>
+      {% endfor %}
+    </ul> 
+  -->
 
     </div>
 
