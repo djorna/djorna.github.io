@@ -14,6 +14,8 @@ from pelicanconf import * # Use pelicanconf.py as base
 SITEURL = 'https://djorna.github.io'
 # RELATIVE_URLS = False
 
+LINKS = (('tags', SITEURL + '/tags.html'), ('blog', SITEURL))
+
 # FEED_ALL_ATOM = 'feeds/all.atom.xml'
 # CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 
