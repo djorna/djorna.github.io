@@ -25,17 +25,28 @@
 
 
 
-    <meta name="author" content="David Jorna" />
-    <meta name="description" content="" />
-<meta property="og:site_name" content="David Jorna"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="David Jorna"/>
-<meta property="og:description" content=""/>
-<meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="http://localhost:8000"/>
+<meta name="author" content="David Jorna" />
+<meta name="description" content="A simple explanation of vSLAM." />
+<meta name="keywords" content="Computer Vision, SLAM">
 
-  <title>David Jorna &ndash;     Categories
-</title>
+<!-- MailChimp -->
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/2266395baae64c7ef988e2db5/55db5d385983164f1dadf9c8d.js");</script>
+
+<meta property="og:site_name" content="David Jorna"/>
+<meta property="og:title" content="A Guide to Learning Modern vSLAM"/>
+<meta property="og:description" content="A simple explanation of vSLAM."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://localhost:8000/vslam_guide.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-03-25 15:40:00-05:00"/>
+<meta property="article:modified_time" content="2019-06-17 20:39:00-05:00"/>
+<meta property="article:author" content="http://localhost:8000/author/david-jorna.html">
+<meta property="article:section" content="Education"/>
+<meta property="article:tag" content="Computer Vision"/>
+<meta property="article:tag" content="SLAM"/>
+<meta property="og:image" content="">
+
+  <title>David Jorna &ndash; A Guide to Learning Modern vSLAM</title>
 
 
   <!-- pelican_dynamic -->
@@ -53,7 +64,6 @@
         <ul class="list" id="navlinks">
             <li id="about"><a href="http://localhost:8000/pages/about.html#about">About</a></li>
 
-          <li id=""><a href="http://localhost:8000/tags.html">tags</a></li>
           <li id=""><a href="http://localhost:8000">blog</a></li>
         </ul>
       </nav>
@@ -62,6 +72,7 @@
     <!--
     <div class="category-cloud">
       <p>
+        <a href="http://localhost:8000/category/education.html">Education</a>
         <a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a>
       </p>
     </div>
@@ -89,6 +100,7 @@
     
   <!--
    <ul class="list">
+      <li><a href="http://localhost:8000/category/education.html">Education</a> (1)</li>
       <li><a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a> (1)</li>
     </ul> 
   -->
@@ -110,14 +122,66 @@
 
 <article class="single">
   <header>
-    <h1>    Categories
-</h1>
+      
+    <h1 id="vslam_guide">A Guide to Learning Modern vSLAM</h1>
+    <p>
+          Posted on Mon 25 March 2019 in <a href="http://localhost:8000/category/education.html">Education</a>
+
+
+    </p>
+    
   </header>
-  <div>
-    <ul class="list">
-      <li><a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a> (1)</li>
-    </ul>
+    <!-- Fancy math equations -->
+    <!-- script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script> -->
+
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+  <div class="article-content">
+    <p>Visual Simultaneous Localization and Mapping (vSLM) is a rapidly accelerating area of research that will have an important impact in modern technology. It is a key ingredient of what makes self driving cars, autonomous drones, and augmented reality possible.</p>
+<h2>A Brief History of SLAM</h2>
+<h2>Terminology</h2>
+<p>For mere mortal, among which I count myself, the jargon can be a bit overwhelming at first.</p>
+<ul>
+<li>Structure from motion (SfM)</li>
+</ul>
+<h2>The</h2>
+<h2>Papers</h2>
+<p>Visual SLAM is a complex subject, so in order to get a better understanding of it, you can't avoid a bit of heavy reading. Once you have a decent understanding of the key terminology, I recommend reading the following papers to start. The state of the art in vSLAM is every-changing, so which I will try to keep this list up-to-date, it is by no means exhaustive.</p>
+<ul>
+<li>LSD-SLAM</li>
+<li>ORB-SLAM</li>
+<li>CNN-SLAM</li>
+</ul>
+<p>In future posts I plan to describe some of these papers in depth.</p>
+<h2>Types of vSLAM</h2>
+<h3>Sparse vs. Dense</h3>
+<p>"Sparse" and "Dense" refer to exactly what you'd expect: whether the points in the resulting 3D map are close or far apart. Sparse vSLAM is good enough for localization, but is not sufficent for applications which require a full 3D-model of the environment, such as robotic navigation, or </p>
+<h3>Direct vs Keypoints</h3>
+<p>The old-school (and currently state-of-the-art) method of doing vSLAM is by extracting keypoints from image using feature descriptors. These work by...</p>
+<p>In contrast, direct methods operate directly on the pixels of the image. The advantage of this method is that it has the potential to be more robust, and generate denser maps. However, the problem with current direct methods, such as LSD-SLAM is that they are highly sensitive to image noise, so their use is mostly restricted to specialized high-quality cameras.</p>
+<h2>Further Reading</h2>
+<p>vSLAM is an active area of research, so to really understand it, you will need to read some papers.</p>
+<ul>
+<li>LSD-SLAM</li>
+<li>ORB-SLAM</li>
+<li>CNN-SLAM</li>
+</ul>
   </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="http://localhost:8000/tag/computer-vision.html">Computer Vision</a>
+      <a href="http://localhost:8000/tag/slam.html">SLAM</a>
+    </p>
+  </div>
+
+
+
+
+
 </article>
 
     <footer>

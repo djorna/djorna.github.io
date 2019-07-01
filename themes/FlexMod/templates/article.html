@@ -5,6 +5,9 @@
 <meta name="description" content="{{ article.summary|striptags|escape }}" />
 <meta name="keywords" content="{{ article.tags|join(', ')|escape }}">
 
+<!-- MailChimp -->
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/2266395baae64c7ef988e2db5/55db5d385983164f1dadf9c8d.js");</script>
+
 {% include "partial/og_article.html" %}
 {% endblock %}
 
@@ -23,6 +26,14 @@
            when=article.locale_date,
            category='<a href="%s/%s">%s</a>'|format(SITEURL, article.category.url, article.category)|safe) }}
 
+      {% if article.tags %}
+        with tags
+        {% for tag in article.tags[:-1] %}
+          <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>,
+        {% endfor %}
+        <a href="{{ SITEURL }}/{{ article.tags[-1].url }}">{{ article.tags[-1] }}</a>
+      {% endif %}
+
       {% if 'post_stats' in PLUGINS %}
         &#8226; {{ article.stats['read_mins'] }} min read
       {% endif %}
@@ -30,10 +41,6 @@
     
   </header>
     <!-- Fancy math equations -->
-    <!-- script type="text/javascript" async
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script> -->
-    
     <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
   {% if GOOGLE_ADSENSE and GOOGLE_ADSENSE.ads.article_top %}
@@ -49,6 +56,10 @@
   <div class="article-content">
     {{ article.content }}
   </div>
+
+  
+
+  <!-- Show tag cloud
   <div class="tag-cloud">
     <p>
       {% if article.tags %}
@@ -58,6 +69,7 @@
       {% endif %}
     </p>
   </div>
+  -->
 
   {% if ADD_THIS_ID %}
   <div class="center social-share">

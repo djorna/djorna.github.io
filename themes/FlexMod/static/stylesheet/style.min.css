@@ -16,6 +16,7 @@ h1 {
 
 h2 {
   font-size: 2em;
+  margin-top: 0;
 }
 
 h3 {
@@ -34,6 +35,18 @@ h6 {
   font-size: 1.1em
 }
 
+h2 a {
+  color: #242121;
+}
+
+h2 a:hover {
+  color: #242121;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -44,17 +57,54 @@ body {
   line-height: 1.2em
 }
 
-.article-summary {
-  padding-left: 10px;
-  float: left;
+.article-summary-block {
+  display: flex;
+  /* background-color:#00ab6b; */
+  border-bottom: 2px solid  #efefef;
 }
 
+.article-summary-block div {
+  margin: 20px;
+  /* background-color: #3371b7;*/
+}
+
+.article-summary {
+  margin-top: -20px;
+  font-size: 1.0em;
+  padding-left: 10px;
+}
+
+.article-image-thumbnail {
+  height: 100%;
+  width: 100%;
+  max-width: 200px;
+}
+
+#mc-embedded-subscribe{
+  border-radius: 8px;
+  background-color: #0099ff;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  line-height: 1;
+  font-size: 1.02em;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
 #subscribe-button {
   border-radius: 8px;
   background-color: #0099ff;
   color: white;
   border: none;
   padding: 8px 18px;
+  line-height: 1;
+  font-size: 1.02em;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
 }
 
 a {
@@ -80,7 +130,11 @@ img {
 }
 
 aside {
-  background-color: #333;
+  /* background-color: #333; */
+  /* background-color: #222228; */
+  background-color: #282828;
+  /* background-color: #fff; */
+  
   text-align: center
 }
 
@@ -157,7 +211,9 @@ main .social-share p {
 main article {
   margin: 0 8% 2%;
   max-width: 800px;
-  margin: auto;
+  margin-left: 50;
+  padding-right: 2px;
+  padding-left: 2px;
 }
 
 main article header h1, main article header h2 {
@@ -265,11 +321,8 @@ main footer p {
 
 .article-content {
   max-width: 800px;
-  margin: auto;
   font-size: 18px;
   line-height: 1.7em;
-  padding-right: 20px;
-  padding-left: 20px;
 }
 
 .article-content img {
@@ -305,13 +358,13 @@ main footer p {
 }
 
 .category-cloud a:hover {
-  background-color: #ff5a09
+  background-color: #007575
 }
 
-.article-image-thumbnail {
-  float: left;
-  max-width: 200px;
-  height: 200px
+
+
+.clearfix {
+  overflow: auto;
 }
 
 a.btn {
@@ -392,8 +445,9 @@ ul.social li {
 }
 
 ul.social a:hover {
-  z-index: 1;
-  transform: translateY(-5px)
+  /*z-index: 1;*/
+  /* transform: translateY(-5px); */
+  /* background-color: #0099ff; */
 }
 
 ul.social a {
@@ -423,7 +477,14 @@ ul.social a.sc-pinterest {
 }
 
 ul.social a.sc-linkedin {
-  background-color: #3371b7
+  /* background-color: #3371b7 */
+  color: #000;
+  background-color: #fff;
+}
+
+ul.social a.sc-linkedin:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 ul.social a.sc-medium {
@@ -450,8 +511,16 @@ ul.social a.sc-youtube {
   background-color: #e02a20
 }
 
+
+
 ul.social a.sc-github, ul.social a.sc-github-alt {
-  background-color: #111010
+  color: #000;
+  background-color: #fff
+}
+
+ul.social a.sc-github:hover {
+  color: #fff;
+  background-color: #000;
 }
 
 ul.social a.sc-envelope-o {
@@ -477,6 +546,7 @@ ul.social a.sc-xing {
 ul.social a.sc-bitbucket {
   background-color: #0747a6
 }
+
 
 .ads-aside {
   display: inline-block;
