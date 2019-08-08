@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <!-- link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet" --->
+  <!-- link href="https://fonts.googleapis.com/css?family=Slabo+27px&display=swap" rel="stylesheet" --> 
+  <!-- link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet" --> 
+  <!--link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" --> 
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/font-awesome/css/font-awesome.min.css">
+
+
+
+
+
+
+
+<meta name="author" content="David Jorna" />
+<meta name="description" content="How to build a static website for free with no hosting fees, with minimal coding experience." />
+<meta name="keywords" content="Programming, Python">
+
+<!-- MailChimp -->
+<script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/2266395baae64c7ef988e2db5/55db5d385983164f1dadf9c8d.js");</script>
+
+<meta property="og:site_name" content="David Jorna"/>
+<meta property="og:title" content="How to build a blog for free with Pelican"/>
+<meta property="og:description" content="How to build a static website for free with no hosting fees, with minimal coding experience."/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="http://localhost:8000/how-to-build-a-blog-for-free-with-pelican.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-07-01 20:40:00-05:00"/>
+<meta property="article:modified_time" content="2019-07-01 20:40:00-05:00"/>
+<meta property="article:author" content="http://localhost:8000/author/david-jorna.html">
+<meta property="article:section" content="Tutorials"/>
+<meta property="article:tag" content="Programming"/>
+<meta property="article:tag" content="Python"/>
+<meta property="og:image" content="">
+
+  <title>David Jorna &ndash; How to build a blog for free with Pelican</title>
+
+
+  <!-- pelican_dynamic -->
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="http://localhost:8000">
+        <img src="http://localhost:8000/theme/img/profile.png" alt="" title="">
+      </a>
+      <h1><a href="http://localhost:8000"></a></h1>
+
+
+      <nav>
+        <ul class="list" id="navlinks">
+            <li id="about"><a href="http://localhost:8000/pages/about.html#about">About</a></li>
+
+          <li id=""><a href="http://localhost:8000/categories.html">categories</a></li>
+          <li id=""><a href="http://localhost:8000/tags.html">tags</a></li>
+          <li id=""><a href="http://localhost:8000">blog</a></li>
+        </ul>
+      </nav>
+
+    <!-- List categories  -->
+    <!--
+    <div class="category-cloud">
+      <p>
+        <a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a>
+        <a href="http://localhost:8000/category/thoughts.html">Thoughts</a>
+        <a href="http://localhost:8000/category/tutorials.html">Tutorials</a>
+      </p>
+    </div>
+  -->
+
+      <ul class="social">
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/david-jorna/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/djorna" target="_blank"><i class="fa fa-github"></i></a></li>
+      </ul>
+
+      <!-- a href="mailto:davidjorna@gmail.com?subject=Subscription to davidjorna.com
+        &body=Hi, I would like to receive email notifications when you publish a new post.">Subscribe</a -->
+
+      <!-- Begin Mailchimp Signup Form -->
+      <!-- link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css" -->
+
+      <!-- form action="https://gmail.us20.list-manage.com/subscribe/post?u=2266395baae64c7ef988e2db5&amp;id=457c7cedd8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          < real people should not fill this in and expect good things - do not remove this or risk form bot signups>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2266395baae64c7ef988e2db5_457c7cedd8" tabindex="-1" value=""></div>
+          <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="subscribe-button" class="button"></div>
+      </form -->
+
+<!--End mc_embed_signup-->
+
+    
+  <!--
+   <ul class="list">
+      <li><a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a> (1)</li>
+      <li><a href="http://localhost:8000/category/thoughts.html">Thoughts</a> (1)</li>
+      <li><a href="http://localhost:8000/category/tutorials.html">Tutorials</a> (2)</li>
+    </ul> 
+  -->
+
+    </div>
+
+
+  </aside>
+  <main>
+
+
+   
+    <!-- <input type="button" onClick="subscribePopup()" value="Subscribe" />
+    <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/unique-methods/embed.js" data-dojo-config="usePlainJson: true, isDebug: false">
+    </script>
+    <script type="text/javascript">
+      window.dojoRequire(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us20.list-manage.com","uuid":"2266395baae64c7ef988e2db5","lid":"457c7cedd8","uniqueMethods":true}) })
+    </script> -->
+
+<article class="single">
+  <header>
+      
+    <h1 id="how-to-build-a-blog-for-free-with-pelican">How to build a blog for free with Pelican</h1>
+    <p>
+          Posted on Mon 01 July 2019 in <a href="http://localhost:8000/category/tutorials.html">Tutorials</a>
+
+
+        with tags
+          <a href="http://localhost:8000/tag/programming.html">Programming</a>,
+        <a href="http://localhost:8000/tag/python.html">Python</a>
+
+    </p>
+    
+  </header>
+    <!-- Fancy math equations -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+  <div class="article-content">
+    <p>Two blog posts in and I'm already scraping the bottom of the barrel. Rest assured, I haven't run out of ideas, but some of my other post ideas will take a bit longer to write, so this will have to do for now.</p>
+<h1>Why use a static site generator?</h1>
+<p>Most "How to Start a Blog" advice will advise you to use a CMS like WordPress, pick a host</p>
+<h1>Do I have to know how to code?</h1>
+<p>Some fundamental programming skills will by helpful if you want to edit your theme, which you almost definitely will.</p>
+<h1>This sounds too good to be true. If you can make a blog for free, why do people pay for WordPress hosting?</h1>
+<p><img alt="pick-two" src="images/pick_two.png"></p>
+<blockquote>
+<p>Good, fast cheap. Pick two.</p>
+</blockquote>
+<p>It's the new widely-known and frequently repeated mantra of web development. I would tell you where the quote comes from, but to my irritation, I wasn't able to find the source online. It seems to be derived from the <a href="https://en.wikipedia.org/wiki/Project_management_triangle">project management triangle</a>, but even the omniscient nerds at Wikipedia don't seem to know where this concept originated.</p>
+<p>In any case, using a static site generator is a sort of DIY approach, so it falls into the "good and cheap, but not fast" category. So the trade-off you're making by using a static site generator is that it might take you a bit longer to get set up. </p>
+<h1>Choosing a static site generator</h1>
+<p>There are several different SSGs out there, and you could waste a lot of valuable time weighing the pros and cons of each one. So let's do that.</p>
+<p>Before looking at the pros and cons, I recommend considering the following factors when making your selection:
+* Pick one written in a language you know already, or a language you want to learn. I decided against using Jekyll for this reason, since I don't intend to ever use Ruby for anything.
+* Speed doesn't really matter. The speed of an SSG is just how fast the pages are generated. This may be a bit more convenient while editing your theme, but otherwise this is of little importance.
+* How good is the selection of templates? This is especially important if you're not a web designer, or don't want to spend a lot of time tweaking your theme. 
+* </p>
+<p>Here's a list of some popular SSGs. It's not an exhaustive list, nor is it in any particular order.</p>
+<h2>1. Hugo (written in golang)</h2>
+<p>Pros:
+* Fast generation
+* Nice selection of templates
+* Widely used, so </p>
+<h2>2. Jekyll (written in Ruby)</h2>
+<p>Pros:
+* Most widely used option
+* Endorsed by Github Pages (note that any SSG will work with Github Pages; this just means you'll have to use your brain less)</p>
+<h2>3. Pelican (written in Python)</h2>
+<p>Pros:
+* Most Pythonic</p>
+<p>Cons:
+* Not as popular as the other options
+* Theme selection is much lower than </p>
+<h1>Getting started with Pelican</h1>
+<p>I chose to use a static site generator called Pelican for my blog, since I already had some experience with Python. Pelican's website has a great tutorial for getting started,but there's a few things you'll want to do to integrate with Github Pages, and improve your workflow.</p>
+<h2>1. Workflow</h2>
+<p>Your blog posts will be written in Markdown, so I recommend using a text editor such as <a href="https://code.visualstudio.com/">VSCode</a>, which will allow you to preview the appearance of your posts in real time, and give you access to spell-checking plugins</p>
+<p>To preview your website locally, you will have to first generate content with</p>
+<div class="highlight"><pre><span></span><span class="n">pelican</span> <span class="n">content</span>
+</pre></div>
+
+
+<p>Then listen on your local network with</p>
+<div class="highlight"><pre><span></span><span class="n">pelican</span> <span class="o">--</span><span class="n">listen</span>
+</pre></div>
+
+
+<p>If you don't like typing <code>pelican content</code> every time you want to see changes, you can set pelican to run it automatically every time you make a change, which I recommend.</p>
+<div class="highlight"><pre><span></span><span class="n">pelican</span> <span class="n">content</span> <span class="o">--</span><span class="n">autoreload</span>
+</pre></div>
+
+
+<p>Since I normally use a Windows desktop, I made a little batch script to do all of this automatically.</p>
+<div class="highlight"><pre><span></span># start.bat
+<span class="k">CALL</span> ../env/Scripts/activate.bat # Activate Python virtual environment
+<span class="k">START</span> <span class="s2">&quot;new window&quot;</span> cmd /k <span class="s2">&quot;pelican --listen&quot;</span> # Create a new terminal, and listen on localhost:8000 (or whatever address you set)
+pelican content --autoreload # Automatically re-generate your content when you make changes
+</pre></div>
+
+
+<p>For Linux users, here's the equivalent bash script:</p>
+<div class="highlight"><pre><span></span>../env/bin/activate
+</pre></div>
+
+
+<p>To deploy your blog through Github Pages, <a href="https://rasor.github.io/using-pelican-blog-on-github-pages.html">this blog post</a> includes a batch script to commit and push your changes to master, then checkout your development branch again. I'll include it here for convenience:</p>
+<div class="highlight"><pre><span></span># publish.bat
+git add .
+git commit -a -m <span class="nv">%1</span>
+git push -u origin pelican
+pelican content -o output -s pelicanconf.py
+ghp-import output -r origin -b master
+git push origin master
+git checkout pelican
+</pre></div>
+
+
+<p>Now you just need to run <code>publish.bat &lt;commit message&gt;</code> to make your changes live.</p>
+<h2>Modifying your theme</h2>
+  </div>
+
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://gmail.us20.list-manage.com/subscribe/post?u=2266395baae64c7ef988e2db5&amp;id=457c7cedd8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">If you found this post useful, please consider subscribing.</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2266395baae64c7ef988e2db5_457c7cedd8" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+  <!-- Show tag cloud
+  <div class="tag-cloud">
+    <p>
+      <a href="http://localhost:8000/tag/programming.html">Programming</a>
+      <a href="http://localhost:8000/tag/python.html">Python</a>
+    </p>
+  </div>
+  -->
+
+
+
+
+
+  <!-- Commento -->
+  <div id="commento"></div><script src="https://cdn.commento.io/js/commento.js"></script>
+  <!-- include "partial/disqus.html" %} -->
+</article>
+
+    <footer>
+
+<p>&copy; David Jorna 2019</p>
+    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " David Jorna ",
+  "url" : "http://localhost:8000",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+  <!--style>
+    a.active {
+      color:#0066ff;
+    }
+  </style--->
+  
+  <script>
+  // Script for highlighting menu options
+  var items = document.getElementById("navlinks").getElementsByTagName("li");
+  for (var i = 0; i < items.length; ++i) {
+    var link = items[i].getElementsByTagName("a").item(0);
+    if (link == document.URL) {
+      link.className = 'active';
+    }
+  }
+  </script>
+</body>
+
+</html>

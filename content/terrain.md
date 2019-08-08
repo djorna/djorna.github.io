@@ -6,7 +6,7 @@ Tags: Game Development, Projects, Terrain Generation
 Slug: Terrain1
 Authors: David Jorna
 Summary: Generate a 2D heightmap for use in 3D games and simulations.
-Featured_Image: images/thermal_erosion_eroded.png
+Featured_Image: /images/thermal_erosion_eroded.png
 
 
 ## Motivation

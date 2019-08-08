@@ -58,26 +58,44 @@ body {
 }
 
 .article-summary-block {
-  display: flex;
-  /* background-color:#00ab6b; */
-  border-bottom: 2px solid  #efefef;
+  box-sizing: border-box;
+  background-color:#00ab6b;
+  /* border-bottom: 2px solid  #efefef;*/
 }
 
 .article-summary-block div {
-  margin: 20px;
-  /* background-color: #3371b7;*/
+  /*margin: 20px;*/
+  margin-bottom: 20px;
 }
 
 .article-summary {
-  margin-top: -20px;
+  float: left;
   font-size: 1.0em;
-  padding-left: 10px;
+  width: 100%;
+  max-width: 500px;
 }
 
 .article-image-thumbnail {
-  height: 100%;
   width: 100%;
+  min-width: 200px;
+  background-clip: red;
+  /*
   max-width: 200px;
+  height: 200px;
+  width: 200px
+  */
+}
+
+.date {
+  color: grey;
+  font-style: italic;
+}
+
+.thumbnail {
+  float: left;
+  width: 20%;
+  min-width: 200px;
+  padding-right: 10px;
 }
 
 #mc-embedded-subscribe{
@@ -211,7 +229,7 @@ main .social-share p {
 main article {
   margin: 0 8% 2%;
   max-width: 800px;
-  margin-left: 50;
+  margin-left: 20px;
   padding-right: 2px;
   padding-left: 2px;
 }
@@ -303,7 +321,6 @@ main article table td, main article table th {
   padding: 8px;
   line-height: 20px;
   vertical-align: top;
-  border-top: 1px solid #ddd
 }
 
 main footer {
@@ -323,6 +340,10 @@ main footer p {
   max-width: 800px;
   font-size: 18px;
   line-height: 1.7em;
+}
+
+.article-content a {
+  color: #0099ff
 }
 
 .article-content img {

@@ -14,37 +14,15 @@
   <!--link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" --> 
   <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/stylesheet/style.min.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/stylesheet/style.min.css">
 
-  <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/pygments/github.min.css">
-  <link rel="stylesheet" type="text/css" href="https://djorna.github.io/theme/font-awesome/css/font-awesome.min.css">
-
-
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/pygments/github.min.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:8000/theme/font-awesome/css/font-awesome.min.css">
 
 
 
-<!-- Google Analytics 
-<script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-137157184-1', 'auto');
-  ga('send', 'pageview');
-</script>
-End Google Analytics -->
 
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-137157184-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-137157184-1');
-</script>
 
 
 <meta name="author" content="David Jorna" />
@@ -58,11 +36,11 @@ End Google Analytics -->
 <meta property="og:title" content="Procedural Terrain Generation"/>
 <meta property="og:description" content="Generate a 2D heightmap for use in 3D games and simulations."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://djorna.github.io/Terrain1.html"/>
+<meta property="og:url" content="http://localhost:8000/Terrain1.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2019-05-14 09:32:00-05:00"/>
 <meta property="article:modified_time" content="2019-06-14 21:00:00-05:00"/>
-<meta property="article:author" content="https://djorna.github.io/author/david-jorna.html">
+<meta property="article:author" content="http://localhost:8000/author/david-jorna.html">
 <meta property="article:section" content="Open Source Projects"/>
 <meta property="article:tag" content="Game Development"/>
 <meta property="article:tag" content="Projects"/>
@@ -77,18 +55,19 @@ End Google Analytics -->
 <body>
   <aside>
     <div>
-      <a href="https://djorna.github.io">
-        <img src="https://djorna.github.io/theme/img/profile.png" alt="" title="">
+      <a href="http://localhost:8000">
+        <img src="http://localhost:8000/theme/img/profile.png" alt="" title="">
       </a>
-      <h1><a href="https://djorna.github.io"></a></h1>
+      <h1><a href="http://localhost:8000"></a></h1>
 
 
       <nav>
         <ul class="list" id="navlinks">
-            <li id="about"><a href="https://djorna.github.io/pages/about.html#about">About</a></li>
+            <li id="about"><a href="http://localhost:8000/pages/about.html#about">About</a></li>
 
-          <li id=""><a href="https://djorna.github.io/tags.html">tags</a></li>
-          <li id=""><a href="https://djorna.github.io">blog</a></li>
+          <li id=""><a href="http://localhost:8000/categories.html">categories</a></li>
+          <li id=""><a href="http://localhost:8000/tags.html">tags</a></li>
+          <li id=""><a href="http://localhost:8000">blog</a></li>
         </ul>
       </nav>
 
@@ -96,7 +75,8 @@ End Google Analytics -->
     <!--
     <div class="category-cloud">
       <p>
-        <a href="https://djorna.github.io/category/open-source-projects.html">Open Source Projects</a>
+        <a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a>
+        <a href="http://localhost:8000/category/tutorials.html">Tutorials</a>
       </p>
     </div>
   -->
@@ -123,7 +103,8 @@ End Google Analytics -->
     
   <!--
    <ul class="list">
-      <li><a href="https://djorna.github.io/category/open-source-projects.html">Open Source Projects</a> (1)</li>
+      <li><a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a> (1)</li>
+      <li><a href="http://localhost:8000/category/tutorials.html">Tutorials</a> (1)</li>
     </ul> 
   -->
 
@@ -147,13 +128,13 @@ End Google Analytics -->
       
     <h1 id="Terrain1">Procedural Terrain Generation</h1>
     <p>
-          Posted on Tue 14 May 2019 in <a href="https://djorna.github.io/category/open-source-projects.html">Open Source Projects</a>
+          Posted on Tue 14 May 2019 in <a href="http://localhost:8000/category/open-source-projects.html">Open Source Projects</a>
 
 
         with tags
-          <a href="https://djorna.github.io/tag/game-development.html">Game Development</a>,
-          <a href="https://djorna.github.io/tag/projects.html">Projects</a>,
-        <a href="https://djorna.github.io/tag/terrain-generation.html">Terrain Generation</a>
+          <a href="http://localhost:8000/tag/game-development.html">Game Development</a>,
+          <a href="http://localhost:8000/tag/projects.html">Projects</a>,
+        <a href="http://localhost:8000/tag/terrain-generation.html">Terrain Generation</a>
 
     </p>
     
@@ -222,7 +203,26 @@ Here's what the heightmap looks like with \(\alpha\ = 0.66\), meaning the ratio 
 <!--
 The pseudocode for thermal erosion is as follows:
 
-wzxhzdk:0
+<div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># Erosion magnitude</span>
+<span class="n">d_total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Total height difference</span>
+<span class="n">d_max</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Max height difference</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">N</span> <span class="c1"># Talus angle threshold</span>
+<span class="k">for</span> <span class="n">n</span> <span class="n">iterations</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">heightmap</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Neighbours are the 8 adjacent cells (Moore neighbourhood)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">h</span><span class="o">.</span><span class="n">neighbours</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">-</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">:</span>
+                <span class="n">d_total</span> <span class="o">+=</span> <span class="n">d</span>
+                <span class="n">d_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">d_total</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">h</span><span class="o">.</span><span class="n">neighbours</span><span class="p">:</span>
+            <span class="c1"># Only erode if difference is above threshold</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">:</span>
+                <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+
 
 -->
 
@@ -287,14 +287,32 @@ Where \(K_e\) is the evaporation coefficient.</p>
 <p>All of the techniques I am using for procedural terrain generation are from a <a href="http://web.mit.edu/cesium/Public/terrain.pdf">2004 paper</a>, which details the use of the algorithm to generate maps for a real-time strategy game. I highly recommend reading the paper, as it goes into more depth about the design and optimization of each of the algorithms.</p>
   </div>
 
-  
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://gmail.us20.list-manage.com/subscribe/post?u=2266395baae64c7ef988e2db5&amp;id=457c7cedd8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">If you found this post useful, please consider subscribing.</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2266395baae64c7ef988e2db5_457c7cedd8" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
 
+<!--End mc_embed_signup-->
   <!-- Show tag cloud
   <div class="tag-cloud">
     <p>
-      <a href="https://djorna.github.io/tag/game-development.html">Game Development</a>
-      <a href="https://djorna.github.io/tag/projects.html">Projects</a>
-      <a href="https://djorna.github.io/tag/terrain-generation.html">Terrain Generation</a>
+      <a href="http://localhost:8000/tag/game-development.html">Game Development</a>
+      <a href="http://localhost:8000/tag/projects.html">Projects</a>
+      <a href="http://localhost:8000/tag/terrain-generation.html">Terrain Generation</a>
     </p>
   </div>
   -->
@@ -322,7 +340,7 @@ Where \(K_e\) is the evaporation coefficient.</p>
   "@context" : "http://schema.org",
   "@type" : "Blog",
   "name": " David Jorna ",
-  "url" : "https://djorna.github.io",
+  "url" : "http://localhost:8000",
   "image": "",
   "description": ""
 }
