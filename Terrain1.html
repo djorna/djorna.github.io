@@ -97,6 +97,7 @@ End Google Analytics -->
     <div class="category-cloud">
       <p>
         <a href="https://djorna.github.io/category/open-source-projects.html">Open Source Projects</a>
+        <a href="https://djorna.github.io/category/tutorials.html">Tutorials</a>
       </p>
     </div>
   -->
@@ -124,6 +125,7 @@ End Google Analytics -->
   <!--
    <ul class="list">
       <li><a href="https://djorna.github.io/category/open-source-projects.html">Open Source Projects</a> (1)</li>
+      <li><a href="https://djorna.github.io/category/tutorials.html">Tutorials</a> (1)</li>
     </ul> 
   -->
 
@@ -222,7 +224,26 @@ Here's what the heightmap looks like with \(\alpha\ = 0.66\), meaning the ratio 
 <!--
 The pseudocode for thermal erosion is as follows:
 
-wzxhzdk:0
+<div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="c1"># Erosion magnitude</span>
+<span class="n">d_total</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Total height difference</span>
+<span class="n">d_max</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># Max height difference</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="n">N</span> <span class="c1"># Talus angle threshold</span>
+<span class="k">for</span> <span class="n">n</span> <span class="n">iterations</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">heightmap</span><span class="p">:</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Neighbours are the 8 adjacent cells (Moore neighbourhood)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">h</span><span class="o">.</span><span class="n">neighbours</span><span class="p">:</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">-</span> <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">:</span>
+                <span class="n">d_total</span> <span class="o">+=</span> <span class="n">d</span>
+                <span class="n">d_max</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">d_total</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">h</span><span class="o">.</span><span class="n">neighbours</span><span class="p">:</span>
+            <span class="c1"># Only erode if difference is above threshold</span>
+            <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">T</span><span class="p">:</span>
+                <span class="n">h</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">T</span><span class="p">)</span>
+</pre></div>
+
 
 -->
 
@@ -287,8 +308,26 @@ Where \(K_e\) is the evaporation coefficient.</p>
 <p>All of the techniques I am using for procedural terrain generation are from a <a href="http://web.mit.edu/cesium/Public/terrain.pdf">2004 paper</a>, which details the use of the algorithm to generate maps for a real-time strategy game. I highly recommend reading the paper, as it goes into more depth about the design and optimization of each of the algorithms.</p>
   </div>
 
-  
+<!-- Begin Mailchimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+	/* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="https://gmail.us20.list-manage.com/subscribe/post?u=2266395baae64c7ef988e2db5&amp;id=457c7cedd8" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<label for="mce-EMAIL">If you found this post useful, please consider subscribing.</label>
+	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2266395baae64c7ef988e2db5_457c7cedd8" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
 
+<!--End mc_embed_signup-->
   <!-- Show tag cloud
   <div class="tag-cloud">
     <p>
