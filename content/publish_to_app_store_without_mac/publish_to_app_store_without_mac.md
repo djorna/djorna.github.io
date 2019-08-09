@@ -1,6 +1,6 @@
 Title: How to Publish Your Unity Game to the App Store Without a Mac or an iPhone
 Date: 2019-08-07 12:00
-Modified: 2019-08-07 12:00
+Modified: 2019-08-08 21:25
 Category: Tutorials 
 Tags: Game Development 
 Slug: publish-to-app-store-without-a-mac
@@ -31,14 +31,16 @@ For this next part, you're going to have to find a friend with an iPhone. If you
 
 Ideally, you would test your build on a physical device before releasing to open beta. If you have long-term access to an iOS device, you'll also want to write down the [UDID of the friend's device](http://whatsmyudid.com/). However, the basic premise of this tutorial is assuming you don't have access to an iOS device. As a compromise, you may want to make a second testing group that only includes people you know personally, so they can alert you to any major bugs.
 
+***Note**: Borrowing an iPhone is by no means a long-term solution. If you want to start a game development company, or plan to do long-term iOS development, you should probably invest in a Mac and an iPhone for development. Only use this method if you're looking for a short-term way to publish your app as soon as possible with minimal investment.*
+
 ## Step 2: Get Access to macOS
 
 In order to publish your app to TestFlight or the App Store, unfortunately you have to use XCode at some point. Without shelling out for a Mac, you have two options: run macOS in a VM or use a cloud service. I tried out both of these, and they're both good options. The one you choose just depends on your priorities and budget. Do you have the time and technical skills to go through the painful process of installing a virtual machine? Then go with the VM. Do you want to save time, and are willing to spend at least $20 per month or $1 per hour on a cloud service? Then go with the cloud. I personally went with the VM because I like the control, but I admit it was a pain to set up. If I knew how long if would take to set up ahead or time, I'd probably just go with the cloud service. I'll go over both options here so you can decide what works for you.
 
 ### Option A: Use a Cloud Service
-You can use a service like macincloud.com to get up and running in around 20 minutes. For the purpose of publishing your app, I would probably go with an hourly plan, since you shouldn't take over 20 hours per week uploading your app.
+You can use a service like [macincloud.com](https://www.macincloud.com/) to get up and running in around 20 minutes. For the purpose of publishing your app, I would probably go with an hourly plan, since you shouldn't take over 20 hours per week uploading your app.
 
-I personally only have experience with macincloud.com, but here are some other options which look promising as well:
+I personally only have experience with [macincloud.com](https://www.macincloud.com/), but here are some other options which look promising as well:
 
 **1. [wens.io](https://www.wenz.io/ApplicationLoader)**  
 
