@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>How to Publish Your Unity Game to the App Store Without a Mac or an iPhone // David Jorna</title>
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="David Jorna" />
+    <meta name="description" content="Publish to the App Store without while paying Apple the minimum possible amount." />
+    <link rel="stylesheet" href="https://davidjorna.com/css/main.min.f90f5edd436ec7b74ad05479a05705770306911f721193e7845948fb07fe1335.css" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Publish Your Unity Game to the App Store Without a Mac or an iPhone"/>
+<meta name="twitter:description" content="Publish to the App Store without while paying Apple the minimum possible amount."/>
+
+    <meta property="og:title" content="How to Publish Your Unity Game to the App Store Without a Mac or an iPhone" />
+<meta property="og:description" content="Publish to the App Store without while paying Apple the minimum possible amount." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://davidjorna.com/posts/publish_to_app_store_without_mac/publish-to-app-store-without-a-mac/" />
+<meta property="article:published_time" content="2019-09-15T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-09-15T00:00:00&#43;00:00"/>
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://davidjorna.com/"><img class="app-header-avatar" src="/avatar.jpg" alt="David Jorna" /></a>
+      <h1>David Jorna</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vehicula turpis sit amet elit pretium.</p>
+      <div class="app-header-social">
+        
+          <a target="_blank" href="https://github.com/djorna"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg></a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">How to Publish Your Unity Game to the App Store Without a Mac or an iPhone</h1>
+      <div class="post-meta">
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Sep 15, 2019
+        </div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          9 min read
+        </div><div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line>
+</svg>
+          <a class="tag" href="https://davidjorna.com/tags/unity/">Unity</a></div></div>
+    </header>
+    <div class="post-content">
+      
+
+<p>I recently released the beta of my first mobile game, <a href="https://getjuggl.com">Juggl</a>, for both Android an iOS. Not owning any Apple products besides an old iPod Nano, I found publishing to the App Store to be more difficult than I expected. It&rsquo;s no wonder some indie devs neglect the App Store altogether to save themselves the headache of getting through Apple&rsquo;s strict hardware requirements.</p>
+
+<p>This is unfortunate, because they&rsquo;re missing out on a lot of potential revenue. Even though <a href="https://www.idc.com/promo/smartphone-market-share/os">Android has the largest market share globally</a> at around 87%, <a href="https://www.mactrast.com/2011/07/iphone-users-pay-more-and-play-more-than-users-of-other-platforms/">iPhone users tend to have deeper pockets and play more games</a>. Plus, if you&rsquo;re living in Canada, the U.S., Australia, or the U.K., you probably have some friends with iPhones who will want to try out your game, and that&rsquo;s as good a reason as any.</p>
+
+<p>One of the benefits of working with a game engine like Unity3D is that you only have to code your game once. This is great for mobile games, as you will usually want to publish your game on both Google Play store and the App Store. However, don&rsquo;t underestimate the additional work required to publish your mobile game on two stores at once. There&rsquo;s a lot of red tape involved, and Apple has really tried their best to make it impossible to develop for iOS without buying their products.</p>
+
+<p>If you&rsquo;re in a similar situation as me, and you don&rsquo;t feel like buying a Mac and iPhone just to publish your game on the App Store, hopefully I can save you some time with this blog post.</p>
+
+<h2 id="step-1-joining-the-apple-developer-program">Step 1: Joining the Apple Developer Program</h2>
+
+<p><strong>You will need:</strong></p>
+
+<ul>
+<li>$132 CAD ($99 USD)</li>
+<li>A trustworthy (and trusting) friend with an iPhone</li>
+</ul>
+
+<p>Joining Apple&rsquo;s Developer Program is necessary if you want to deploy you app to the App Store. They also charge you a hefty $99 yearly fee for the privilege of being in their store. This may me a shock to you if you already paid Google&rsquo;s one time developer fee of $50. But if you own a lot of Apple products, you can probably afford it. It&rsquo;s no wonder that <a href="https://deviceatlas.com/blog/android-v-ios-market-share">iOS is more popular in richer counties</a>.</p>
+
+<p>Once you&rsquo;ve emotionally prepared to part with your hard-earned money, now comes the tricky part. As of February 27th of 2019, <a href="https://www.macrumors.com/2019/02/13/developers-two-factor-authentication-required/">Apple now requires you to enable two-factor authentication to create a Developer account</a>. This makes your account more secure, but it also means that you&rsquo;ll have a hard time creating an account if you don&rsquo;t own any Apple products. Even using a cloud service, or running macOS in a VM won&rsquo;t work, because you&rsquo;ll have to have access to the device&rsquo;s unique UDID. Buying a used Mac or iPhone is risky as well, because you can only create a maximum of 3 new accounts on a single machine, which the original user may have done already. This is one of those rare problems that you can&rsquo;t solve from the safe familiarity of your bedroom.</p>
+
+<p>For this next part, you&rsquo;re going to have to find a friend with an iPhone. If you don&rsquo;t have access to a friend, a colleague or acquaintance will do in a pinch. Ask them to let you borrow their iPhone or Mac, and it shouldn&rsquo;t take more than 15 minutes. All you have to do is sign into their device with your Apple ID, and enable two-factor authentication. Also, make sure to write down the login password for their phone. Apple will ask you for it later. Once you have this set up, you won&rsquo;t have to borrow the phone again. Just make sure you set up two-factor authentication with your phone number and not your friend&rsquo;s.</p>
+
+<p>Ideally, you would test your build on a physical device before releasing to open beta. If you have long-term access to an iOS device, you&rsquo;ll also want to write down the <a href="http://whatsmyudid.com/">UDID of the friend&rsquo;s device</a>. However, the basic premise of this tutorial is assuming you don&rsquo;t have access to an iOS device. As a compromise, you may want to make a second testing group that only includes people you know personally, so they can alert you to any major bugs.</p>
+
+<p>*<strong>Note</strong>: Borrowing an iPhone is by no means a long-term solution. If you want to start a game development company, or plan to do long-term iOS development, you should probably invest in a Mac and an iPhone for development. Only use this method if you&rsquo;re looking for a short-term way to publish your app as soon as possible with minimal investment.*</p>
+
+<h2 id="step-2-get-access-to-macos">Step 2: Get Access to macOS</h2>
+
+<p>In order to publish your app to TestFlight or the App Store, unfortunately you have to use XCode at some point. Without shelling out for a Mac, you have two options: run macOS in a VM or use a cloud service. I tried out both of these, and they&rsquo;re both good options. The one you choose just depends on your priorities and budget. Do you have the time and technical skills to go through the painful process of installing a virtual machine? Then go with the VM. Do you want to save time, and are willing to spend at least $20 per month or $1 per hour on a cloud service? Then go with the cloud. I personally went with the VM because I like the control, but I admit it was a pain to set up. If I knew how long if would take to set up ahead or time, I&rsquo;d probably just go with the cloud service. I&rsquo;ll go over both options here so you can decide what works for you.</p>
+
+<h3 id="option-a-use-a-cloud-service">Option A: Use a Cloud Service</h3>
+
+<p>You can use a service like <a href="https://www.macincloud.com/">macincloud.com</a> to get up and running in around 20 minutes. For the purpose of publishing your app, I would probably go with an hourly plan, since you shouldn&rsquo;t take over 20 hours per week uploading your app.</p>
+
+<p>I personally only have experience with <a href="https://www.macincloud.com/">macincloud.com</a>, but here are some other options which look promising as well:</p>
+
+<p><strong>1. <a href="https://www.wenz.io/ApplicationLoader">wens.io</a></strong></p>
+
+<ul>
+<li>wens.io offers a service that gives you the only program we actually need, Application Loader, for €9.99 ($11.22 USD or $14.96 CAD) per month.</li>
+</ul>
+
+<p><strong>2. <a href="http://www.appuploader.net/appuploader/download.php">App Uploader</a></strong></p>
+
+<ul>
+<li>For a $40 / year licensing fee, App Uploader will generate the provisioning profiles and certificates you need, and upload your .ipa file to the App Store.</li>
+</ul>
+
+<p><strong>Pros:</strong></p>
+
+<ul>
+<li>Get up and running quickly<br /></li>
+<li>XCode comes pre-installed
+<br /></li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+
+<ul>
+<li>Costs more than $0</li>
+</ul>
+
+<h3 id="option-b-run-macos-in-a-vm">Option B: Run macOS in a VM</h3>
+
+<p>Your other option is to run macOS in a VM. I used VirtualBox and followed <a href="https://techsviewer.com/install-macos-mojave-vmware-windows/">this tutorial</a> which includes links to the relevant files. With this route, you can expect to spend several hours downloading the disk image files and creating the VM. You&rsquo;ll also have to install XCode once the VM is ready, so make sure you save enough</p>
+
+<p><strong>Pros:</strong></p>
+
+<ul>
+<li>Free<br /></li>
+<li>Full control and ownership over your software</li>
+</ul>
+
+<p><strong>Cons:</strong></p>
+
+<ul>
+<li>Hours of time that could be spent coding your game, marketing, playing frisbee, etc.</li>
+<li>Could run slowly depending on your hardware</li>
+</ul>
+
+<h2 id="step-3-building-your-game-for-ios">Step 3: Building your Game For iOS</h2>
+
+<p>If you&rsquo;re running Windows or Linux, you can still build for iOS, but instead of creating a .ipa file, Unity builds an XCode project. You can then open that project on your VM or cloud machine and continue the build process from there.</p>
+
+<p>However, that&rsquo;s not the way I would suggest you go about it. The extra step of transferring the XCode project to your macOS machine is time consuming, and in my experience you may encounter some cryptic errors if XCode isn&rsquo;t configured just right.</p>
+
+<p>So instead I would suggest you check out <a href="https://unity3d.com/unity/features/cloud-build">Unity Cloud Build</a>. It costs $9 per month, but in my opinion it&rsquo;s well worth it. All you have to do is point Unity to your repo on Github, or whatever hosting service you&rsquo;re using for your code, and Unit will automatically build for both Android and iOS every time you push a commit. This also has the added benefit of letting you continue coding your game while your project is building. When you&rsquo;re setting up your project&rsquo;s repo, I recommend creating a new branch called something like &ldquo;unity-cloud-build&rdquo; which just contains your &ldquo;Assets&rdquo; and &ldquo;Project Settings&rdquo; folders.</p>
+
+<p>In order to publish your game on TestFlight or the App store, you&rsquo;re going to need to generate the appropriate certificates and provisioning profiles <a href="https://developer.apple.com/account/resources/certificates">here</a>. Unity&rsquo;s documentation has a <a href="https://docs.unity3d.com/Manual/UnityCloudBuildiOS.html">useful tutorial</a> for setting these up correctly.</p>
+
+<p>Once you have the appropriate p12 file and provisioning profile, you will need to add them to Unity for the build process. Go to Edit &gt; Project Settings &gt; Player &gt; Other Settings &gt; Identification. You can <a href="https://developer.apple.com/account/resources/profiles/">download your provisioning profile</a>, and add it here. Also make sure the <a href="https://developer.apple.com/account/resources/identifiers/">Bundle Identifier (com.CompanyName.AppName) and Signing Team ID</a> are correct.</p>
+
+<p>With these parameters set up correctly, you should now be able to build your project.</p>
+
+<h2 id="step-4-publishing-to-testflight-the-app-store">Step 4: Publishing to TestFlight / the App Store</h2>
+
+<p>Finally, once you have your .ipa file from Unity built, you&rsquo;ll want to publish it to TestFlight for beta testing. I&rsquo;ll just cover publishing to TestFlight here, but publishing to the App Store is a similar process.</p>
+
+<p>Access macOS in whatever way you decided on, and open XCode. Now you can open Application Loader by clicking XCode &gt; Open Developer Tool &gt; Application Loader. Apple will now ask you for all the passwords you&rsquo;ve accumulated up to this point, so hopefully you&rsquo;ve written them down somewhere.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Now that you&rsquo;ve submitted your build to the Apple&rsquo;s Beta Review process, you can expect to wait 1-2 days for your submission to be accepted. In the meantime, you may want to figure out how you&rsquo;re going to get beta testers for your app. I&rsquo;m not a marketing expert, you I&rsquo;ll direct you to the <a href="https://www.youtube.com/watch?v=cIQOCQBUKk4">Game Dev Underground Youtube channel</a>, which I&rsquo;ve found to be a useful resource.</p>
+
+<p>Also, now that your game published on multiple platforms (assuming you already published your beta on Google Play), it can be helpful to create a landing page for your app as well, so you can direct people to one central location to download your app. It&rsquo;s also just nice to have a place to showcase your app that you have complete control over. <a href="https://getjuggl.com/">The landing page for my game</a> is a pretty minimal example, so I would suggest you check out <a href="https://spyrestudios.com/26-landing-pages-for-video-games/">some more professional examples</a> for inspiration.</p>
+
+<p>As a side note, Unity is currently working on the <a href="https://unity.com/unity-distribution-portal">Unity Distribution Portal</a> which allows your to publish your apps on multiple app stores at once. It doesn&rsquo;t currently support publishing to the App Store or Google Play, so it&rsquo;s not that useful at the moment. I expect Google to agree to collaborate with Unity eventually, but I have less hope for Apple, given their general business strategy of keeping everything proprietary and exclusive. The possibility that some of the more tedious aspects of cross-platform publishing could be reduced is exciting at least.</p>
+
+<p>I hope you&rsquo;ve found this tutorial helpful. Apple would probably prefer that you but their devices, which large game companies can afford to do, but is often outside of the budget of indie developers or hobbyists. If you run into any difficulties, be sure to let me know in the comments and I&rsquo;ll do my best to help.</p>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

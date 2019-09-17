@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://davidjorna.com/about/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/categories/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/tags/management/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/posts/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/tags/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/posts/terrain_generation/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/categories/tutorials/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/posts/what_is_an_intranet/</loc>
+    <lastmod>2019-09-15T23:45:04-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/tags/app-development/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/tags/game-development/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/posts/publish_to_app_store_without_mac/publish-to-app-store-without-a-mac/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidjorna.com/tags/unity/</loc>
+    <lastmod>2019-09-15T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

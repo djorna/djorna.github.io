@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Management on David Jorna</title>
+    <link>https://davidjorna.com/tags/management/</link>
+    <description>Recent content in Management on David Jorna</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Sep 2019 23:45:04 -0400</lastBuildDate>
+    
+	<atom:link href="https://davidjorna.com/tags/management/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is intranet?</title>
+      <link>https://davidjorna.com/posts/what_is_an_intranet/</link>
+      <pubDate>Sun, 15 Sep 2019 23:45:04 -0400</pubDate>
+      
+      <guid>https://davidjorna.com/posts/what_is_an_intranet/</guid>
+      <description>Disclaimer: This post is sponsored by MyHub Intranet Solutions, an affiliate of Daikon Media, who were kind enough to review my indie game. However, this post is meant to be educational and objective; this post is not an advertisement, and I was not censored in any way.
+Intranet vs Internet You&amp;rsquo;re might be familiar with something called &amp;ldquo;the internet.&amp;rdquo; It surrounds us and penetrates us. It binds the galaxy together.</description>
+    </item>
+    
+  </channel>
+</rss>
