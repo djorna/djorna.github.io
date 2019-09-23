@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>terrain-generation on David Jorna</title>
+    <link>https://davidjorna.com/tags/terrain-generation/</link>
+    <description>Recent content in terrain-generation on David Jorna</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://davidjorna.com/tags/terrain-generation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Terrain Generation</title>
+      <link>https://davidjorna.com/posts/terrain-generation/</link>
+      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://davidjorna.com/posts/terrain-generation/</guid>
+      <description>Motivation Procedural terrain generation encompasses a broad range of techniques, with the goal of efficiently creating a realistic simulated environment. Some of the most famous applications of procedural terrain generation are in Minecraft, which procedurally generated biomes to simulate different climages, and No Man&amp;rsquo;s Sky, which uses procedural techniques to generate entire worlds.
+While video games are the most well-known application of procedural terrain generation, they are not the only application.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,17 +6,17 @@
     <description>Recent content in App Development on David Jorna</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 07 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://davidjorna.com/tags/app-development/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>How to Publish Your Unity Game to the App Store Without a Mac or an iPhone</title>
-      <link>https://davidjorna.com/posts/publish_to_app_store_without_mac/publish-to-app-store-without-a-mac/</link>
-      <pubDate>Sun, 15 Sep 2019 00:00:00 +0000</pubDate>
+      <title>Publish Your Unity Game to the App Store Without a Mac or an iPhone</title>
+      <link>https://davidjorna.com/posts/publish-to-app-store-without-a-mac/</link>
+      <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://davidjorna.com/posts/publish_to_app_store_without_mac/publish-to-app-store-without-a-mac/</guid>
+      <guid>https://davidjorna.com/posts/publish-to-app-store-without-a-mac/</guid>
       <description>I recently released the beta of my first mobile game, Juggl, for both Android an iOS. Not owning any Apple products besides an old iPod Nano, I found publishing to the App Store to be more difficult than I expected. It&amp;rsquo;s no wonder some indie devs neglect the App Store altogether to save themselves the headache of getting through Apple&amp;rsquo;s strict hardware requirements.
 This is unfortunate, because they&amp;rsquo;re missing out on a lot of potential revenue.</description>
     </item>
